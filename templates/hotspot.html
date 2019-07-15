@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title> Change the hotspot page </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+
+    <center>
+
+
+
+        <!-- Rounded switch -->
+
+        <form action="" method="POST">
+        
+                <div class="checkbox">
+                        
+                            <input type="checkbox" name="check" value="on" 
+                            onchange="
+                                var name = document.getElementById('name');
+                                name.disabled = this.checked;
+                                name.value = '';
+                                var currpass = document.getElementById('current_pass');
+                                currpass.disabled = this.checked;
+                                currpass.value = '';
+                                var newpass = document.getElementById('new_pass');
+                                newpass.disabled = this.checked;
+                                newpass.value = '';"> start
+                        </label>
+                    </div>
+
+            New Name:
+            <div class="form1">
+                <input id='name' type="text" name="name" value="{{
+                        request.form.name}}">
+            </div><br>
+            Current Password:
+            <div class="form2">
+                <input id ='current_pass' type="password" name="current_pass" placeholder="Password" value="{{
+                    request.form.current_pass}}">
+            </div><br>
+            New Password:
+            <div class="form3">
+                <input id='new_pass' type="password" name="new_pass" placeholder="Password" value="{{
+                request.form.new_pass}}">
+            </div><br>
+            <input id="submit" class="btn btn-default" type="submit" value="Change">
+        </form>
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+            {% endif %}
+    </center>
+</body>
+
+</html>

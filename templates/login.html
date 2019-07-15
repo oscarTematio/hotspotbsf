@@ -1,0 +1,30 @@
+<html>
+    <body>
+  <head>
+    <title> Bsf login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+    <center>
+        <div class="container">
+        <h1>Please login Before</h1>
+        <br>
+        <form action="" method="post">
+            Username:<br>
+            <input type="text" placeholder="Username" name="username" value="{{
+            request.form.username }}"><br>
+
+            Password:<br>
+            <input type="password" placeholder="Password" name="password" value="{{
+            request.form.password }}"><br>
+            <input class="btn btn-default" type="submit" value="Login">
+        </form>
+        {% if error %}
+           
+            <p class="error"><strong>Error:</strong> {{ error }}
+           
+        {% endif %}
+        </div>
+    </center>
+  </body>
+</html>
